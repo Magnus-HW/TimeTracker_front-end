@@ -1,0 +1,69 @@
+GET http://localhost:3001/api/days
+###
+POST http://localhost:3001/api/days
+Content-Type: application/json
+
+{
+    "date": 1650844800000,
+    "dateUTCoffSet": 7,
+    "dayStatus": "work",
+    "workTime": 8,
+    "timeStatus": 1000,
+    "events": []
+}
+ 
+###
+POST http://localhost:3001/api/days/monthField/
+Content-Type: application/json
+
+{
+    "firstDay": 1650844800000,
+    "lastDay": 2650844800000
+}
+###
+DELETE http://localhost:3001/api/days/628fd2e82c45b9b3e4e968dd
+###
+
+
+
+###
+events
+###
+
+POST http://localhost:3001/api/events/menu
+Content-Type: application/json
+
+{
+    "dateId" : "62a38340b6406e48c9a9c0d0"
+}
+###
+POST http://localhost:3001/api/events
+Content-Type: application/json
+
+{
+    "in": 777,
+    "out": -1,
+    "dateId": "628fd2e82c45b9b3e4e968dd"
+}
+
+###
+POST http://localhost:3001/api/events/menu
+Content-Type: application/json
+
+{
+    "dateId" : "6291f81b6ab8dfa95534e9da"
+}
+###
+GET  http://localhost:3001/api/events/6291fd756ab8dfa95534ea2d
+###
+DELETE http://localhost:3001/api/events/6291e3ee4976da684fc49294
+###
+PUT http://localhost:3001/api/events/62a23c0054d4b47b9cc11c42
+Content-Type: application/json
+
+{   
+    "_id": "62a23c0054d4b47b9cc11c42",
+    "in": 0,
+    "out": 10800000,
+    "dateId": "629e522867cea8df82327fff"
+}

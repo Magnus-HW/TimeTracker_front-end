@@ -1,0 +1,24 @@
+version: '3'
+services:
+  back:
+    image: back
+    ports:
+      - "127.0.0.1:3001:3001"
+    networks:
+      - mern-app
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
+    networks:
+      - mern-app
+    volumes:
+      - "./data:/data/db"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=magnus
+      - MONGO_INITDB_ROOT_PASSWORD=hunter2
+networks:
+  mern-app:
+    driver: bridge

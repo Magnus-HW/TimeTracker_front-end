@@ -1,0 +1,7 @@
+docker build -t back .
+
+docker-compose up
+//detached mode aka background
+dpcker run -d -p 9000:3000 node-docker
+
+docker run -it -p 9001:3001 -v $(pwd):/app
