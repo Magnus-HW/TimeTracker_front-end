@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+}
+.Calendar {
+  max-width: 400px;
+  max-height: 400px;
+  position: relative;
+}
+
+.DaysField {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  position: relative;
+}
+.DaysField button {
+  border: 0px;
+  margin: 0;
+  padding: 5%;
+}
+.DaysField button:hover {
+  transform: scale(1.15);
+}
+.DaysField [class~="free"]{
+  background-color: rgba(255, 0, 0, 0.747);
+}
+
+.DaysField [class~="work"]{
+  background-color: rgba(0, 162, 255, 0.445);
+}
+@import '~antd/dist/antd.css';
+
+.DaysField [class~="currentDay"]{
+  background-color: rgba(251, 255, 0, 0.726);
+}
+
+.DaysField [class~="more0"]{
+  background-color: rgba(51, 255, 0, 0.726);
+}
+
+.DaysField [class~="more0"]{
+  background-color: rgba(51, 255, 0, 0.726);
+}
+
+.DaysField [class~="events"]{
+  background-color: rgba(255, 0, 234, 0.726);
+}
+
+/* 
+Day Menu
+*/
+
+.DayMenuContainer {
+  background-color: rgba(0, 255, 255, 0.623);
+  min-width: 100%;
+  min-height: 100%;
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  padding: 5%;
+}
+
+.DayMenuContainer.display-block{
+  display:block  
+}
+
+.DayMenuContainer.display-none{
+  display:none 
+}
+
+.display-none {
+  display:none 
+}

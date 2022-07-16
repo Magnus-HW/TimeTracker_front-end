@@ -1,0 +1,11 @@
+oneDay = {
+    dayStatus: "work" | "free"
+    in: value,
+    out: value,
+    timeStatus: number
+}
+
+month = {
+    dayTime(ms) : oneDay,
+    dayTime(ms) : oneDay,
+}
