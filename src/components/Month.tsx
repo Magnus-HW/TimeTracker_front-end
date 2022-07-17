@@ -22,7 +22,6 @@ const Month = (): JSX.Element => {
   const [state, dispatch] = useStateValue()
   const [showMenu, setShowMenu] = useState<string>('DayMenuContainer display-none')
 
-
   //console.log('state', state);
   
   const range = getMonthFieldRange(monthToDisplay.getTime())
@@ -39,8 +38,10 @@ const Month = (): JSX.Element => {
   
   const monthField : JSX.Element[] = []
 
-  
 
+  for(let i=0; i<range.daysBeforCurMonth; i++) {
+    monthField.push(<div></div>)
+  }
   for(let i=range.firstDay; i<=range.lastDay; i+=dayMs){
     //console.log(monthFieldDay);
     monthField.push(<Day date={i} setShowMenu={setShowMenu}/>)
@@ -65,10 +66,10 @@ const Month = (): JSX.Element => {
     <div className="Month">
       <div className="MonthInfo">
           <button className="Button prev" onClick={handlePreviousClick}>
-            <LeftOutlined /> 
+            <LeftOutlined />
           </button>
 
-          <div>{new Date().toLocaleDateString()}</div>
+          <div>{monthToDisplay.toLocaleDateString().slice(3,)}</div>
           <MonthOwedTime state={state} monthToDisplay={monthToDisplay}/>
 
           <button className="Button right" onClick={handleNextClick}>

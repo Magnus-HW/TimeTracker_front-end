@@ -20,14 +20,14 @@ export const getMonthFieldRange = (showMonth: number) : {
     const nextMonth = new Date(new Date(monthToDisplay).setMonth(currentMonth+1));
     const lastDayOfCurrentMonth = new Date(nextMonth.setDate(nextMonth.getDate()-1));
 
-    const beforePlusCurrent = daysBeforCurMonth+lastDayOfCurrentMonth.getDate();
+    // const beforePlusCurrent = daysBeforCurMonth+lastDayOfCurrentMonth.getDate();
 
-    // date from which to start showing; amount of days in the field
-    const monthFieldDay = Math.floor((monthToDisplay.getTime() - (dayMs * daysBeforCurMonth))/100000)*100000;
-    const amountOfMonthFieldDays = (beforePlusCurrent) % 7 === 0 
-        ? beforePlusCurrent : beforePlusCurrent + 6 - (beforePlusCurrent % 7);
-    //const UTC = 3*3600*1000;
+    // // date from which to start showing; amount of days in the field
+    // const monthFieldDay = Math.floor((monthToDisplay.getTime() - (dayMs * daysBeforCurMonth))/100000)*100000;
+    // const amountOfMonthFieldDays = (beforePlusCurrent) % 7 === 0 
+    //     ? beforePlusCurrent : beforePlusCurrent + 6 - (beforePlusCurrent % 7);
+    // //const UTC = 3*3600*1000;
     
-    const LastMonthFieldDays = amountOfMonthFieldDays * dayMs + monthFieldDay;
-    return {daysBeforCurMonth: daysBeforCurMonth, firstDay : monthFieldDay, lastDay: LastMonthFieldDays};
+    // const LastMonthFieldDays = amountOfMonthFieldDays * dayMs + monthFieldDay;
+    return {daysBeforCurMonth: daysBeforCurMonth, firstDay : monthToDisplay.getTime(), lastDay: lastDayOfCurrentMonth.getTime()};
 };
