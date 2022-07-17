@@ -6,7 +6,7 @@ import cors from 'cors';
 
 //localhost - from localmachine
 //db - from docker
-connect('mongodb://magnus:hunter2@localhost:27017/', {dbName: 'Calendar'})
+connect('mongodb://magnus:hunter2@mongo:27017/', {dbName: 'Calendar'})
 .then(() => {
     console.log('connected');
   })

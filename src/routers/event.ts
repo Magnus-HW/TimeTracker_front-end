@@ -85,7 +85,8 @@ eventsRouter.delete('/:id', (_req, res) => {
         //console.log(day.events);
         const allDayEvents = await Event.find({dateId: dateId});
         const newTimeStatus = countTimeStatus(allDayEvents, day.workTime);
-
+        console.log(newTimeStatus);
+        
         await Day.findByIdAndUpdate(dateId, {events: day.events, timeStatus: newTimeStatus});
         //console.log({deleted, newTimeStatus});
         res.json({deleted, newTimeStatus});
