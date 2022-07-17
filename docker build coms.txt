@@ -1,5 +1,5 @@
 docker build -t back .
-
+d
 docker compose up
 //detached mode aka background
 dpcker run -d -p 9000:3000 node-docker
