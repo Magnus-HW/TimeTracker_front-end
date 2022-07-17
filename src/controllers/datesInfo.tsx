@@ -1,13 +1,10 @@
 import axios from "axios";
-import { type } from "os";
-import { NumberLiteralType } from "typescript";
 import { DayInter, DeletedEventRes, EditEventRes, IDaySample, IEvent, IEventInput} from "../types";
 const baseUrl = 'http://localhost:3001/api'
 
 const getMonthField = async (range : {firstDay: number, lastDay: number}) : Promise<DayInter[]> => {
     const request = await axios.post(`${baseUrl}/days/monthField/`,  range)
     //console.log(request.data);
-    
     return request.data
 }
 

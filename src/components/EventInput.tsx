@@ -110,7 +110,7 @@ const EventInput  = ({showEventInput, showInput} : {showEventInput: boolean, sho
     //   const num = timeString.match(/\d\d/g).map((i: string ) => Number(i))
     //   console.log(time.getTime(), timeString);
     // }
-    const className = showEventInput ? 'EventField' : 'EventField display-none'
+    const className = showEventInput ? 'NewEventPicker' : 'NewEventPicker display-none'
     return (
       <div className={className}>
         <TimePicker onChange={eventSubTime} format="HH:mm"

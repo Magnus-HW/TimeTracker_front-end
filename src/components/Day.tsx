@@ -9,7 +9,7 @@ const Day = ({ date, setShowMenu }: { date: number, setShowMenu: React.Dispatch<
   const fullDate = new Date(date)
   const currentMOnth = fullDate.getUTCMonth()
   const currentDate = new Date().setUTCHours(0, 0, 0, 0)
-  let className = "";
+  let className = "day";
   // const isFullInfo = (info: IDayProps): info is IDayProps => {
   //   return (info as DayInter)._id !== undefined
   // }
@@ -47,7 +47,7 @@ const Day = ({ date, setShowMenu }: { date: number, setShowMenu: React.Dispatch<
     }
   }
   if (date == currentDate) {
-    className += " currentDay"
+    className += " current"
   }
   
   useEffect(()=>{
@@ -118,7 +118,7 @@ const Day = ({ date, setShowMenu }: { date: number, setShowMenu: React.Dispatch<
   // className is a row woth space splited words 'work || freeDay' + 'day_status" + 'currentDay'
   //coloring in css by [attr~=value]
   return (
-    <button className={className1} onClick={handleClick}>{fullDate.getUTCDate()}</button>
+    <button type="button" className={className1} onClick={handleClick}>{fullDate.getUTCDate()}</button>
   )
 }
 

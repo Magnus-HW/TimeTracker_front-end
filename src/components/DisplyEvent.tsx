@@ -5,6 +5,7 @@ import { useStateValue } from "../state/state"
 import { IEvent, IDaySample, PickerStatus } from "../types"
 import dayControllers from '../controllers/datesInfo';
 import TimePicker from "./TimePicker/TimePicker"
+import { DeleteOutlined } from "@ant-design/icons"
 
 const DisplayEvent = ({event, timeZone, dateUTCoffSet}: {event:IEvent, timeZone: string, dateUTCoffSet: number}) => {
   
@@ -91,7 +92,7 @@ const DisplayEvent = ({event, timeZone, dateUTCoffSet}: {event:IEvent, timeZone:
                                 status={inPickerStatus}/>}
         {outStr == null ? null :<TimePicker value={outStr} format="HH:mm" onChange={handleOutputSub}
                                 status={outPickerStatus}/>}
-        <button onClick={handleDeleteEvent}>Delete Event</button>
+        <button className="Button Delete"onClick={handleDeleteEvent}><DeleteOutlined /></button>
       </div>
     )
   }

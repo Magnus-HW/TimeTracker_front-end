@@ -6,6 +6,7 @@ import dayControllers from '../controllers/datesInfo';
 import {getMonthFieldRange} from '../services/date'
 import DayMenu from "./DayMenu";
 import MonthOwedTime from "./MonthTime";
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 
 const Month = (): JSX.Element => {
 
@@ -19,7 +20,7 @@ const Month = (): JSX.Element => {
   
   //STATE
   const [state, dispatch] = useStateValue()
-  const [showMenu, setShowMenu] = useState<string>('DayMenuContainer display-block')
+  const [showMenu, setShowMenu] = useState<string>('DayMenuContainer display-none')
 
 
   //console.log('state', state);
@@ -37,6 +38,9 @@ const Month = (): JSX.Element => {
   
   
   const monthField : JSX.Element[] = []
+
+  
+
   for(let i=range.firstDay; i<=range.lastDay; i+=dayMs){
     //console.log(monthFieldDay);
     monthField.push(<Day date={i} setShowMenu={setShowMenu}/>)
@@ -59,14 +63,25 @@ const Month = (): JSX.Element => {
 
   return (
     <div className="Month">
-        <div className="DaysField">
-            {monthField}
-        </div>
-        <div>{monthToDisplay.toLocaleDateString()}</div>
-        <button onClick={handlePreviousClick}>&larr;</button>
-        <button onClick={handleNextClick}>&#8594;</button>
-        <DayMenu showMenu={showMenu} setShowMenu={setShowMenu} />
-        <MonthOwedTime state={state} monthToDisplay={monthToDisplay}/>
+      <div className="MonthInfo">
+          <button className="Button prev" onClick={handlePreviousClick}>
+            <LeftOutlined /> 
+          </button>
+
+          <div>{new Date().toLocaleDateString()}</div>
+          <MonthOwedTime state={state} monthToDisplay={monthToDisplay}/>
+
+          <button className="Button right" onClick={handleNextClick}>
+            <RightOutlined />
+          </button>
+      </div>
+      <div className="DaysField">
+          {monthField}
+      </div>
+      
+
+      <DayMenu showMenu={showMenu} setShowMenu={setShowMenu} />
+        
     </div>
   )
 }

@@ -6,9 +6,8 @@ import { IDaySample, IEvent, PickerStatus} from "../types"
 import DisplayEvent from "./DisplyEvent";
 import EventInput from "./EventInput";
 
-import toDate from 'date-fns/toDate'
-
 import Switcher from "./Switcher";
+import { CloseOutlined } from "@ant-design/icons";
 
 const DayMenu = (
   {showMenu, setShowMenu} : 
@@ -23,7 +22,9 @@ const DayMenu = (
   let eventsToRender : JSX.Element[] = []
   
   eventsToRender = state.dayEvents
-    .map((event,i) => <div><DisplayEvent key={i} event={event} timeZone='Europe/Moscow' dateUTCoffSet={daySample.dateUTCoffSet}/> </div>) 
+    .map((event,i) => 
+    <DisplayEvent key={i} event={event} 
+          timeZone='Europe/Moscow' dateUTCoffSet={daySample.dateUTCoffSet}/>) 
   //console.log(eventsToRender);
   
   const dateStr = new Date(daySample.date).toUTCString()
@@ -45,22 +46,29 @@ const DayMenu = (
   const showInput = () : void => {
     setShowEventInput(showEventInput == false ? true : false)
   }
-
+  useEffect(() => {
+    setShowEventInput(false)
+  }, [state.daySample])
   return (
     <div className={showMenu}>
         <div className="DayMenuHeader">
-          <div>Date: {dateStr.slice(4,16)}</div>
+        <div id="dayMenuHeader">
+          <button className="Button Close" onClick={closeMenuHandler}><CloseOutlined /></button>
+          <div id="menuDate">{dateStr.slice(4,16)}</div>
           <Switcher />
-          <div>WorkTime: {workTime}</div>
-          <div>TimeStatus: {timeStatus}</div>
-          <button onClick={closeMenuHandler}>X</button>
         </div>
+
+        <div id="dayInfo">
+          <div id="workTime">WorkTime: {workTime}</div>
+          <div id="timeStatus">TimeLeft: {timeStatus}</div>
+          </div>
+        </div>
+        <div id="eventFieldHeader">Events</div>
         <div className="EventsField">
-          Events:
           {eventsToRender}
         </div>
-        {showEventInput == false ? <button onClick={showInput}>AddEvent</button> : null}
-        <EventInput showEventInput={showEventInput} showInput={showInput} />
+        {showEventInput == false ? <button id="addTimePoint" onClick={showInput}>Add Time Point</button> 
+        : <EventInput showEventInput={showEventInput} showInput={showInput} />}
     </div>
   )
 }

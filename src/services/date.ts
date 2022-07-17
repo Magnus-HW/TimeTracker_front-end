@@ -1,7 +1,8 @@
 //showMonth - current date in ms
 export const getMonthFieldRange = (showMonth: number) : {
-    firstDay: number;
-    lastDay: number;
+    firstDay: number,
+    lastDay: number,
+    daysBeforCurMonth: number
 } => {
 
     const dayMs = 24 * 3600 * 1000;
@@ -26,7 +27,7 @@ export const getMonthFieldRange = (showMonth: number) : {
     const amountOfMonthFieldDays = (beforePlusCurrent) % 7 === 0 
         ? beforePlusCurrent : beforePlusCurrent + 6 - (beforePlusCurrent % 7);
     //const UTC = 3*3600*1000;
-
+    
     const LastMonthFieldDays = amountOfMonthFieldDays * dayMs + monthFieldDay;
-    return {firstDay : monthFieldDay, lastDay: LastMonthFieldDays};
+    return {daysBeforCurMonth: daysBeforCurMonth, firstDay : monthFieldDay, lastDay: LastMonthFieldDays};
 };

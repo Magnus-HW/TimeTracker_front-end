@@ -1,0 +1,166 @@
+@import '~antd/dist/antd.css';
+/*Colorss*/
+/*Base reset and box-sizing*/
+/*box-sizing and font sizing*/
+html {
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+.App {
+  display: block;
+  max-width: 360px;
+  max-height: 400px;
+  position: relative;
+}
+
+.Calendar {
+  max-width: 350px;
+  max-height: 400px;
+  margin: 0 auto;
+}
+
+/*MonthInfo*/
+.MonthInfo {
+  height: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #64EBF2;
+  margin-bottom: 5px;
+  border: 1px solid grey;
+  font-weight: bold;
+}
+.MonthInfo .arrow {
+  font-style: none;
+  border: none;
+  font-size: 36px;
+}
+.MonthInfo .anticon {
+  font-size: 1rem;
+}
+
+/*Main field filled with Days*/
+.DaysField {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  position: relation;
+}
+.DaysField button {
+  border: 0px;
+  margin: 0px;
+  padding: 5%;
+  transision: transform 5s;
+}
+.DaysField button:hover {
+  transform: scale(1.15);
+}
+
+/*Condition for coloring buttons*/
+.DaysField .free {
+  background-color: #DD3139;
+}
+.DaysField .work {
+  background-color: #48CED4;
+}
+.DaysField .current {
+  background-color: #53F542;
+}
+.DaysField .events {
+  background-color: #FF9B45;
+}
+
+/*DayMenu*/
+.DayMenuContainer {
+  background-color: rgba(0, 255, 255, 0.9);
+  min-width: 100%;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+  padding: 3%;
+}
+.DayMenuContainer #dayMenuHeader {
+  display: grid;
+  grid-template-columns: 0.8fr 6fr 1fr;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid grey;
+}
+.DayMenuContainer #dayMenuHeader #menuDate {
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+}
+.DayMenuContainer #dayMenuHeader .ant-switch {
+  display: inline-block;
+}
+.DayMenuContainer #dayInfo {
+  height: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid grey;
+}
+.DayMenuContainer #eventFieldHeader {
+  text-align: center;
+  font-weight: bold;
+  margin: 0.3rem 0;
+}
+.DayMenuContainer .EventsField {
+  margin-bottom: 0.3rem;
+}
+
+/*PopUp DayMenu*/
+.DayMenuContainer.display-block {
+  display: block;
+  position: absolute;
+}
+.DayMenuContainer.display-block .event {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.DayMenuContainer.display-block #addTimePoint {
+  display: block;
+  margin: 0 auto;
+}
+.DayMenuContainer.display-block .NewEventPicker {
+  display: inline-block;
+  position: relative;
+  left: 28%;
+}
+
+/*Switcher style*/
+.ant-switch-inner {
+  position: relative;
+  top: -0.5px;
+}
+
+.ant-switch {
+  width: 60px;
+}
+
+/*TimePickerStyle*/
+.ant-picker {
+  width: 140px;
+}
+
+/*Button styles*/
+.Button {
+  padding: 2px;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 26px;
+  font-size: 1rem;
+  border-radius: 2px;
+}
+
+/*hide elements with class="display-none"*/
+.display-none {
+  display: none;
+}/*# sourceMappingURL=styles.css.map */
